@@ -1,5 +1,10 @@
 import React, { Component, Fragment } from 'react'
+import { Route } from 'react-router-dom'
 import { TabBar } from 'antd-mobile'
+import Movie from '../Movie'
+import Mall from '../Mall'
+import Activity from '../Activity'
+import Mine from '../Mine'
 class App extends Component {
   constructor (props) {
     super(props)
@@ -35,10 +40,14 @@ class App extends Component {
               this.setState({
                 selectedTab: 'Movie'
               })
+              this.props.history.push({
+                pathname: '/movie'
+              })
             }}
             data-seed="logId"
           >
             {/* 填入路由页面 */}
+            <Route path='/movie' component={Movie}></Route>
           </TabBar.Item>
           <TabBar.Item
             title="Mall"
@@ -60,10 +69,17 @@ class App extends Component {
               this.setState({
                 selectedTab: 'Mall'
               })
+              // 修改当前路由
+              this.props.history.push({
+                pathname: '/mall'
+              })
             }}
             data-seed="logId"
           >
             {/* 填入路由页面 */}
+            {
+              <Route path='/mall' component={Mall}></Route>
+            }
           </TabBar.Item>
           <TabBar.Item
             title="Activity"
@@ -85,10 +101,14 @@ class App extends Component {
               this.setState({
                 selectedTab: 'Activity'
               })
+              this.props.history.push({
+                pathname: '/activity'
+              })
             }}
             data-seed="logId"
           >
             {/* 填入路由页面 */}
+            <Route path='/activity' component={Activity}></Route>
           </TabBar.Item>
           <TabBar.Item
             title="Mine"
@@ -110,10 +130,14 @@ class App extends Component {
               this.setState({
                 selectedTab: 'Mine'
               })
+              this.props.history.push({
+                pathname: '/mine'
+              })
             }}
             data-seed="logId"
           >
             {/* 填入路由页面 */}
+            <Route path='/mine' component={Mine}></Route>
           </TabBar.Item>
         </TabBar>
         
