@@ -8,7 +8,7 @@ class Login extends Component {
         <div>
           <h1>Login</h1>
         </div>
-        <Button type="primary" size="small">click</Button>
+        <Button type="primary" style={{width: '100px'}}>click</Button>
       </Fragment>
     )
   }
