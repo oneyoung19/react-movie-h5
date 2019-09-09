@@ -1,8 +1,8 @@
 import React from 'react'
-
+import { Wrapper } from './style'
 function Activity () {
   return (
-    <div>Activity</div>
+    <Wrapper>Activity<span>lopppp</span></Wrapper>
   )
 }
 
