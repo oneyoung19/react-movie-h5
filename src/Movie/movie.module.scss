@@ -1,4 +1,45 @@
-.test {
-  font-size: 18px;
-  color: red;
+.container {
+  height: 100%;
+  padding-left: 14px;
+  padding-right: 14px;
+  // 头部
+  .header {
+    display: flex;
+    align-items: center;
+    height: 54px;
+    line-height: 54px;
+    border-bottom: 1px solid #eee;
+    div {
+      margin-right: 16px;
+    }
+    .film {
+      height: 54px;
+      font-size: 17px;
+      color: #999;
+      line-height: 54px;
+    }
+    .active {
+      color: #000;
+      border-bottom: 2px solid #000;
+    }
+  }
+  // 当前时间
+  .currentTime {
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #333;
+  }
+  // 电影列表
+  .movieList {
+    height: calc(100% - 94px);
+    overflow: scroll;
+    scroll-behavior: smooth;
+    &::-webkit-scrollbar { 
+      display: none !important;
+    }
+  }
+  .hidden {
+    display: none;
+  }
 }
