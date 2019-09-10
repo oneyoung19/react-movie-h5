@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  color: blue;
-  span {
-    color: yellow;
-  }
+  height: 100%;
+  padding-left: 14px;
+  padding-right: 14px;
 `

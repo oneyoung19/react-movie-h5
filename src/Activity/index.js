@@ -1,8 +1,12 @@
 import React from 'react'
 import { Wrapper } from './style'
+import ActivityItem from '../Components/ActivityItem/ActivityItem'
 function Activity () {
   return (
-    <Wrapper>Activity<span>lopppp</span></Wrapper>
+    <Wrapper>
+      <ActivityItem></ActivityItem>
+      <ActivityItem></ActivityItem>
+    </Wrapper>
   )
 }
 

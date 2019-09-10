@@ -20,11 +20,24 @@ class Movie extends Component {
     const { active, hotList, futureList } = this.state
     return (
       <div className={style.container}>
+        {/* 影城信息 */}
+        <div className={style.location}>
+          <div className={style.detail}>
+            <div className={style.cinemaName}>旧宫世界之花自由人影城</div>
+            <div className={style.locationName}>大兴区旧宫镇久敬庄路世界之花</div>
+          </div>
+          <div className={style.icon}></div>
+        </div>
+        {/* banner区域 */}
+        <div className={style.banner}>
+          <img src="" alt=""/>
+        </div>
         <div className={style.header}>
           <div className={ active === 'hotFilm' ? `${style.film} ${style.active}` : `${style.film}` } onClick={this.toggleToHotFilm}>正在热映</div>
           <div className={ active === 'futureFilm' ? `${style.film} ${style.active}` : `${style.film}`} onClick={this.toggleToFutureFilm}>即将上映</div>
         </div>
         <div className={style.currentTime}>2019年06月28日(周五)</div>
+        
         <div className={active === 'hotFilm' ? `${style.movieList}` : `${style.movieList} ${style.hidden}`}>
           {
             hotList.map((item) => {
