@@ -1,0 +1,70 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f6f6f6;
+  .imgBox {
+    margin-right: 15px;
+    width: 90px;
+    height: 90px;
+    background-color: skyblue;
+  }
+  .leftBox {
+    .title {
+      margin-bottom: 15px;
+      width: 240px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+      line-height: 16px;
+    }
+    .introduce {
+      margin-bottom: 9px;
+      width: 240px;
+      font-size: 13px;
+      color: #888;
+      line-height: 13px;
+    }
+    .validate {
+      margin-bottom: 13px;
+      width: 190px;
+      font-size: 11px;
+      color: #888;
+      line-height: 13px;
+    }
+    .money {
+      width: 190px;
+      display: flex;
+      line-height: 15px;
+      .ordinary {
+        margin-right: 8px;
+        font-size: 15px;
+        font-weight: bold;
+        color: #333;
+      }
+      .member {
+        font-size: 13px;
+        color: #e4b370;
+      }
+    }
+  }
+  .btn {
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    width: 50px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 13px;
+    background-color: #333;
+    border-radius: 14px;
+    color: #fff;
+  }
+  .ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

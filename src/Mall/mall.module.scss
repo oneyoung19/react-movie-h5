@@ -1,0 +1,106 @@
+.wrapper {
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 100%;
+  // 坐标
+  .location {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    .rightBox {
+      display: flex;
+      height: 18px;
+      line-height: 18px;
+      .localIcon {
+        margin-right: 6px;
+        width: 14px;
+        height: 18px;
+        background-image: url('../assets/cinema_ic_address@2x.png');
+        background-size: 100% 100%;
+      }
+      .localName {
+        font-size: 15px;
+        font-weight: bold;
+        color: #333;
+      }
+    }
+    .arrowIcon {
+      width: 8px;
+      height: 14px;
+      background-image: url('../assets/order_btn_arrow@2x.png');
+      background-size: 100% 100%;
+    }
+  }
+  // 会员卡
+  .scroll {
+    height: calc(100% - 50px);
+    overflow: scroll;
+    &::-webkit-scrollbar {
+      display: none !important;
+    }
+    .memberCard {
+      position: relative;
+      margin-bottom: 10px;
+      width: 345px;
+      height: 150px;
+      background: url('../assets/commodity_vipcard@2x.png') no-repeat right top;
+      background-size: 100% 100%;
+      .amount {
+        position: absolute;
+        top: 50px;
+        right: 15px;
+        font-size: 30px;
+        font-weight: bold;
+        color: #eed092;
+        span {
+          font-size: 13px;
+          font-weight: 500;
+          color: #eed092;
+          line-height: 13px;
+        }
+      }
+      .rightBox {
+        position: absolute;
+        top: 94px;
+        left: 15px;
+        .equity {
+          font-size: 13px;
+          font-weight: 500;
+          color: #eed092;
+          line-height: 13px;
+          margin-bottom: 10px;
+        }
+        .period {
+          font-size: 13px;
+          font-weight: 500;
+          color: #eed092;
+          line-height: 13px;
+        }
+      }
+      .btn {
+        position: absolute;
+        top: 98px;
+        right: 15px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100px;
+        height: 30px;
+        border:1px solid #eed092;
+        border-radius: 15px;
+        .text {
+          font-size: 13px;
+          font-weight: 500;
+          color: #eed092;
+        }
+        .icon {
+          width: 6px;
+          height: 10px;
+          background-image: url('../assets/commodity_vipcard_btn_arrow@2x.png');
+          background-size: 100% 100%;
+        }
+      }
+    }
+  }
+}

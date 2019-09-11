@@ -10,9 +10,10 @@
     height: 72px;
     .detail {
       .cinemaName {
-        font-size: 17px;
-        color: #000;
-        line-height: 17px;
+        font-size: 15px;
+        font-weight: bold;
+        color: #333;
+        line-height: 15px;
         margin-bottom: 10px;
         width: 300px;
         overflow: hidden;
@@ -22,7 +23,7 @@
       .locationName {
         font-size: 14px;
         color: #999;
-        line-height: 14px;
+        line-height: 16px;
         width: 300px;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -63,8 +64,8 @@
       line-height: 54px;
     }
     .active {
-      color: #000;
-      border-bottom: 2px solid #000;
+      color: #333;
+      border-bottom: 2px solid #333;
     }
   }
   // 当前时间
@@ -74,16 +75,25 @@
     font-size: 16px;
     color: #333;
   }
-  // 电影列表
-  .movieList {
+  .movieArea {
+    position: relative;
     height: calc(100% - 246px);
-    overflow: scroll;
-    scroll-behavior: smooth;
-    &::-webkit-scrollbar { 
-      display: none !important;
+    // 电影列表
+    .movieList {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      overflow: scroll;
+      scroll-behavior: smooth;
+      &::-webkit-scrollbar { 
+        display: none !important;
+      }
+      transition: all 0.6s ease-in-out;
     }
-  }
-  .hidden {
-    display: none;
+    .hidden {
+      transform: translateX(-150%);
+      // display: none;
+    }
   }
 }

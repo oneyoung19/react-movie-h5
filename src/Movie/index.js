@@ -37,31 +37,32 @@ class Movie extends Component {
           <div className={ active === 'futureFilm' ? `${style.film} ${style.active}` : `${style.film}`} onClick={this.toggleToFutureFilm}>即将上映</div>
         </div>
         <div className={style.currentTime}>2019年06月28日(周五)</div>
-        
-        <div className={active === 'hotFilm' ? `${style.movieList}` : `${style.movieList} ${style.hidden}`}>
-          {
-            hotList.map((item) => {
-              return (
-                <MovieItem key={item}>
-                  {/* style text */}
-                  <MovieItemBtn style={{backgroundColor: '#1AA5FF', color: '#fff'}} text={'预售'}></MovieItemBtn>
-                </MovieItem>
-              )
-            })
-          }
-        </div>
-        <div className={active === 'futureFilm' ? `${style.movieList}` : `${style.movieList} ${style.hidden}`}>
-          {
-            futureList.map((item) => {
-              return (
-                <MovieItem key={item}>
-                  {/* style text */}
-                  <MovieItemBtn style={{backgroundColor: '#1AA5FF', color: '#fff'}} text={'预售'}></MovieItemBtn>
-                </MovieItem>
-              )
-            })
-          }
-        </div>
+        <div className={style.movieArea}>
+          <div className={active === 'hotFilm' ? `${style.movieList}` : `${style.movieList} ${style.hidden}`}>
+            {
+              hotList.map((item) => {
+                return (
+                  <MovieItem key={item}>
+                    {/* style text */}
+                    <MovieItemBtn style={{backgroundColor: '#1AA5FF', color: '#fff'}} text={'预售'}></MovieItemBtn>
+                  </MovieItem>
+                )
+              })
+            }
+          </div>
+          <div className={active === 'futureFilm' ? `${style.movieList}` : `${style.movieList} ${style.hidden}`}>
+            {
+              futureList.map((item) => {
+                return (
+                  <MovieItem key={item}>
+                    {/* style text */}
+                    <MovieItemBtn style={{backgroundColor: '#1AA5FF', color: '#fff'}} text={'预售'}></MovieItemBtn>
+                  </MovieItem>
+                )
+              })
+            }
+          </div>
+          </div>
       </div>
     )
   }
