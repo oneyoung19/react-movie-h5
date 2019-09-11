@@ -30,7 +30,6 @@ class Movie extends Component {
         </div>
         {/* banner区域 */}
         <div className={style.banner}>
-          <img src="" alt=""/>
         </div>
         <div className={style.header}>
           <div className={ active === 'hotFilm' ? `${style.film} ${style.active}` : `${style.film}` } onClick={this.toggleToHotFilm}>正在热映</div>

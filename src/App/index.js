@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { Route } from 'react-router-dom'
 import { TabBar } from 'antd-mobile'
+import { movieOrdinary, movieSelected, mallOrdinary, mallSelected, activityOrdinary, activitySelected, mineOrdinary, mineSelected } from '../assets/base64/tabbar'
 import Movie from '../Movie'
 import Mall from '../Mall'
 import Activity from '../Activity'
@@ -17,22 +18,22 @@ class App extends Component {
       <Fragment>
         <TabBar
           unselectedTintColor="#949494"
-          tintColor="#33A3F4"
+          tintColor="#000"
           barTintColor="white"
         >
           <TabBar.Item
-            title="Movie"
+            title="电影"
             key="Movie"
             icon={<div style={{
               width: '22px',
               height: '22px',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat' }}
+              background: `url(${movieOrdinary}) center center /  21px 21px no-repeat` }}
             />
             }
             selectedIcon={<div style={{
               width: '22px',
               height: '22px',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat' }}
+              background: `url(${movieSelected}) center center /  21px 21px no-repeat` }}
             />
             }
             selected={this.state.selectedTab === 'Movie'}
@@ -50,18 +51,18 @@ class App extends Component {
             <Route path='/movie' component={Movie}></Route>
           </TabBar.Item>
           <TabBar.Item
-            title="Mall"
+            title="商城"
             key="Mall"
             icon={<div style={{
               width: '22px',
               height: '22px',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat' }}
+              background: `url(${mallOrdinary}) center center /  21px 21px no-repeat` }}
             />
             }
             selectedIcon={<div style={{
               width: '22px',
               height: '22px',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat' }}
+              background: `url(${mallSelected}) center center /  21px 21px no-repeat` }}
             />
             }
             selected={this.state.selectedTab === 'Mall'}
@@ -82,18 +83,18 @@ class App extends Component {
             }
           </TabBar.Item>
           <TabBar.Item
-            title="Activity"
+            title="活动"
             key="Activity"
             icon={<div style={{
               width: '22px',
               height: '22px',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat' }}
+              background: `url(${activityOrdinary}) center center /  21px 21px no-repeat` }}
             />
             }
             selectedIcon={<div style={{
               width: '22px',
               height: '22px',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat' }}
+              background: `url(${activitySelected}) center center /  21px 21px no-repeat` }}
             />
             }
             selected={this.state.selectedTab === 'Activity'}
@@ -111,18 +112,18 @@ class App extends Component {
             <Route path='/activity' component={Activity}></Route>
           </TabBar.Item>
           <TabBar.Item
-            title="Mine"
+            title="我的"
             key="Mine"
             icon={<div style={{
               width: '22px',
               height: '22px',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat' }}
+              background: `url(${mineOrdinary}) center center /  21px 21px no-repeat` }}
             />
             }
             selectedIcon={<div style={{
               width: '22px',
               height: '22px',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat' }}
+              background: `url(${mineSelected}) center center /  21px 21px no-repeat` }}
             />
             }
             selected={this.state.selectedTab === 'Mine'}

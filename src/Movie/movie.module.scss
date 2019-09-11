@@ -40,12 +40,13 @@
   .banner {
     width: 347px;
     height: 80px;
-    background-color: skyblue;
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
+    background-image: url('../assets/images/activity_bg_youhui.png');
+    background-size: 100% 100%;
+    // img {
+    //   display: block;
+    //   width: 100%;
+    //   height: 100%;
+    // }
   }
   // 头部
   .header {
@@ -83,6 +84,7 @@
       position: absolute;
       top: 0;
       left: 0;
+      width: 345px;
       height: 100%;
       overflow: scroll;
       scroll-behavior: smooth;
@@ -96,4 +98,5 @@
       // display: none;
     }
   }
+  
 }
