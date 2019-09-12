@@ -26,7 +26,9 @@ class Movie extends Component {
             <div className={style.cinemaName}>旧宫世界之花自由人影城</div>
             <div className={style.locationName}>大兴区旧宫镇久敬庄路世界之花</div>
           </div>
-          <div className={style.icon}></div>
+          <div className={style.icon}>
+            <i className={`iconfont icondituweizhi ${style.icondituweizhi}`}></i>
+          </div>
         </div>
         {/* banner区域 */}
         <div className={style.banner}>

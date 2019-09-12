@@ -17,7 +17,9 @@ class Mine extends PureComponent {
         {/* 会员卡 */}
         <div className={style.memberCard}>
           <div className={style.rightBox}>
-            <div className={style.icon}></div>
+            <div className={style.icon}>
+              <i className={`iconfont iconhuiyuanqia ${style.iconhuiyuanqia}`}></i>
+            </div>
             <div className={style.cardName}>线下会员卡</div>
           </div>
           <div className={style.btn}>绑定</div>
@@ -28,25 +30,25 @@ class Mine extends PureComponent {
           <div className={style.myOrder}>
             <div className={style.orderItem}>
               <div className={style.iconBox}>
-                <img src="" alt=""/>
+                <i className={`iconfont iconyanzhengqupiao ${style.iconyanzhengqupiao}`}></i>
               </div>
               <div className={style.iconName}>待取票</div>
             </div>
             <div className={style.orderItem}>
               <div className={style.iconBox}>
-                <img src="" alt=""/>
+              <i className={`iconfont icondaiqumaipin ${style.icondaiqumaipin}`}></i>
               </div>
               <div className={style.iconName}>待取卖品</div>
             </div>
             <div className={style.orderItem}>
               <div className={style.iconBox}>
-                <img src="" alt=""/>
+                <i className={`iconfont icondaichuli ${style.icondaichuli}`}></i>
               </div>
               <div className={style.iconName}>待处理</div>
             </div>
             <div className={style.orderItem}>
               <div className={style.iconBox}>
-                <img src="" alt=""/>
+                <i className={`iconfont iconyijieshu ${style.iconyijieshu}`}></i>
               </div>
               <div className={style.iconName}>已结束</div>
             </div>
@@ -56,7 +58,8 @@ class Mine extends PureComponent {
         <div className={style.dataBox}>
           <div className={style.dataItem}>
             <div className={style.dataName}>我的礼品卡</div>
-            <div className={style.icon}></div>
+            <div className={style.icon}>
+            </div>
           </div>
           <div className={style.dataItem}>
             <div className={style.dataName}>我的刷脸卡</div>

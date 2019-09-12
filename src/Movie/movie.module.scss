@@ -33,7 +33,8 @@
     .icon {
       width: 40px;
       height: 40px;
-      background-color: skyblue;
+      line-height: 40px;
+      text-align: center;
     }
   }
   // banner
@@ -98,5 +99,8 @@
       // display: none;
     }
   }
-  
+}
+// 字体图标
+.icondituweizhi {
+  font-size: 30px;
 }
