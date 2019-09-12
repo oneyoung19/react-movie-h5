@@ -10,8 +10,35 @@ class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      selectedTab: 'Movie'
+      // 页面刷新时，将这里的Tab改为当前路由下对应的值
+      selectedTab: '',
+      tabList: {
+        '/movie': 'Movie',
+        '/mall': 'Mall',
+        '/activity': 'Activity',
+        '/mine': 'Mine'
+      }
     }
+  }
+  componentDidMount() {
+    const { tabList } = this.state
+    const selectedTab = window.localStorage.getItem('selectedTab')
+    const pathname = this.props.history.location.pathname
+    if (selectedTab && tabList[pathname] === selectedTab) {
+      this.setState({
+        selectedTab
+      })
+    } else {
+      this.setState({
+        selectedTab: 'Movie'
+      })
+    }
+    this.props.history.listen(() => {
+      const pathname = this.props.history.location.pathname
+      console.warn(pathname)
+      
+      window.localStorage.setItem('selectedTab', tabList[pathname])
+    })
   }
   render () {
     return (

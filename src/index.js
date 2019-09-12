@@ -4,16 +4,23 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-d
 import './index.css'
 import 'lib-flexible'
 import App from './App'
+import Movie from './Movie'
 import Mall from './Mall'
+import Activity from './Activity'
+import Mine from './Mine'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
+  // 其实，Redirect也是会渲染一个对应的to的组件
   <Router>
-    {/* <Switch> */}
+    <Switch>
+      <Redirect from='/' to='/movie' exact></Redirect>
       <Route path='/' component={App}></Route>
-      <Redirect to='/movie'></Redirect>
-      {/* <Route path='/mall' component={Mall}></Route> */}
-    {/* </Switch> */}
+      <Route path='/movie' component={Movie}></Route>
+      <Route path='/mall'  component={Mall}></Route>
+      <Route path='/activity' component={Activity}></Route>
+      <Route path='/mine' component={Mine}></Route>
+    </Switch>
   </Router>,
  document.getElementById('root'));
 
