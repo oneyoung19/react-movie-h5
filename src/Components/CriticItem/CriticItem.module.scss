@@ -1,0 +1,79 @@
+.wrapper {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #f6f6f6;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    /* 头像 */
+    .person {
+      display: flex;
+      .avatar {
+        margin-right: 10px;
+        width: 42px;
+        height: 42px;
+        background-color: pink;
+        border-radius: 50%;
+      }
+      .msg {
+        height: 42px;
+        line-height: 42px;
+        .name {
+          font-size: 14px;
+          color: #333;
+          line-height: 21px;
+        }
+        .action {
+          font-size: 12px;
+          color: #999;
+          line-height: 21px;
+        }
+      }
+    }
+    /* 评分 */
+    .grade {
+      height: 42px;
+      line-height: 42px;
+      .more {
+        text-align: right;
+        color: #333;
+        line-height: 21px;
+      }
+      .score {
+        font-size: 13px;
+        font-weight: bold;
+        color: #ef7d52;
+        line-height: 13px;
+        line-height: 21px;
+      }
+    }
+  }
+  /* 评论内容 */
+  .content {
+    font-size: 10px;
+    color: #999;
+    line-height: 20px;
+  }
+  /* 时间 赞与转发 */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    .time {
+      font-size: 12px;
+      color: #999;
+      line-height: 12px;
+    }
+    .socialAction {
+      color: #999;
+    }
+  }
+}
+.mutiEllipsis {
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}

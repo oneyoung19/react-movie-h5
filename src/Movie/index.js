@@ -55,7 +55,7 @@ class Movie extends Component {
             {
               futureList.map((item) => {
                 return (
-                  <MovieItem key={item}>
+                  <MovieItem key={item} handleMovieItemClick={this.handleMovieItemClick}>
                     {/* style text */}
                     <MovieItemBtn style={{backgroundColor: '#1AA5FF', color: '#fff'}} text={'预售'}></MovieItemBtn>
                   </MovieItem>
@@ -68,6 +68,7 @@ class Movie extends Component {
     )
   }
   toggleToHotFilm = () => {
+    console.log(this.props)
     this.setState({
       active: 'hotFilm'
     })
@@ -75,6 +76,11 @@ class Movie extends Component {
   toggleToFutureFilm = () => {
     this.setState({
       active: 'futureFilm'
+    })
+  }
+  handleMovieItemClick = () => {
+    this.props.history.push({
+      pathname: '/movie/detail'
     })
   }
 }

@@ -8,12 +8,16 @@ import Movie from './Movie'
 import Mall from './Mall'
 import Activity from './Activity'
 import Mine from './Mine'
+import MovieDetail from './Movie/MovieDetail/MovieDetail'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  // 其实，Redirect也是会渲染一个对应的to的组件
+  // 1.其实，Redirect是会渲染一个对应的to的组件
+  // 2.在Switch组件中，匹配多个,但是只会生成一个大组件。如果没有Switch，凡是Route匹配到的组件都会渲染。
+  // 3.虽然router4做了改变，但是依然需要初始化的路由表。页面载入或者刷新都要依赖这个表。
   <Router>
     <Switch>
+      <Route path='/movie/detail' component={MovieDetail}></Route>
       <Redirect from='/' to='/movie' exact></Redirect>
       <Route path='/' component={App}></Route>
       <Route path='/movie' component={Movie}></Route>

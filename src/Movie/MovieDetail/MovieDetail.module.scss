@@ -1,0 +1,180 @@
+.wrapper {
+  padding-right: 15px;
+  padding-left: 15px;
+  // 影片信息
+  .infoBox {
+    .title {
+      width: 345px;
+      height: 64px;
+      line-height: 64px;
+      font-size: 24px;
+      color: #333;
+    }
+    .info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      .left {
+        width: 170px;
+        height: 250px;
+        background-color: skyblue;
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .right {
+        width: 150px;
+        height: 250px;
+        .content {
+          .score {
+            margin-top: 8px;
+            margin-bottom: 15px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+            line-height: 22px;
+          }
+          .item {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #666;
+            line-height: 14px;
+          }
+        }
+        .evaluate {
+          display: flex;
+          margin-top: 80px;
+          .seen {
+            margin-right: 25px;
+            .icon {
+              margin-bottom: 10px;
+              width: 30px;
+              height: 30px;
+              background-color: skyblue;
+            }
+            .describe {
+              text-align: center;
+              font-size: 10px;
+              color: #999;
+              line-height: 10px;
+            }
+          }
+          .toSee {
+            .icon {
+              margin-bottom: 10px;
+              width: 30px;
+              height: 30px;
+              background-color: skyblue;
+            }
+            .describe {
+              text-align: center;
+              font-size: 10px;
+              color: #999;
+              line-height: 10px;
+            }
+          }
+        }
+      }
+    }
+    .introduce {
+      font-size: 10px;
+      color: #999;
+      line-height: 20px;
+    }
+    .operator {
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      border-bottom: 1px solid #f6f6f6;
+    }
+  }
+  // 演职人员
+  .actorBox {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f6f6f6;
+    margin-top: 10px;
+    .title {
+      font-size: 16px;
+      color: #333;
+      line-height: 16px;  
+    }
+    .director {
+      display: flex;
+      margin-top: 20px;
+    }
+    .actor {
+      display: flex;
+      margin-top: 10px;
+      .nameList {
+        width: 300px;
+        display: flex;
+        
+      }
+    }
+    .label {
+      margin-right: 10px;
+      font-size: 12px;
+      color: #999;
+      line-height: 12px;
+    }
+    .name {
+      margin-right: 20px;
+      font-size: 12px;
+      color: #333;
+      line-height: 12px;
+    }
+  }
+  // 剧照
+  .still {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f6f6f6;
+    .title {
+      height: 36px;
+      line-height: 36px;
+      font-size: 16px;
+      color: #333;
+    }
+    .stillList {
+      height: 130px;
+      background-color: skyblue;
+    }
+  }
+  // 影评
+  .filmCritics {
+    .title {
+      display: flex;
+      justify-content: space-between;
+      height: 36px;
+      line-height: 36px;
+      .right {
+        font-size: 16px;
+        color: #333;
+      }
+      .left {
+        font-size: 14px;
+        color: #ef7d52;
+      }
+    }
+  }
+}
+// 字体图标
+.iconarrow_right {
+  font-size: 20px;
+  color: #999
+}
+// 单行省略
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+// 多行省略
+.mutiEllipsis {
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
