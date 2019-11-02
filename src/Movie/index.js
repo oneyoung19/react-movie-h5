@@ -43,7 +43,7 @@ class Movie extends Component {
             {
               hotList.map((item) => {
                 return (
-                  <MovieItem key={item}>
+                  <MovieItem key={item} handleMovieItemClick={this.handleMovieItemClick}>
                     {/* style text */}
                     <MovieItemBtn style={{backgroundColor: '#1AA5FF', color: '#fff'}} text={'预售'}></MovieItemBtn>
                   </MovieItem>
