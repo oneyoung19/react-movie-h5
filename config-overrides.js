@@ -1,3 +1,4 @@
+// 具体可参看antd-mobile上的描述
 // 安装react-app-rewired 以及customize-cra之后，可以手动修改默认配置。之所以需要customize-cra,是因为react-app-rewired已经是2.0版本。
 const { override, fixBabelImports, addPostcssPlugins } = require('customize-cra')
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import style from './movie.module.scss'
 import MovieItem from '../Components/MovieItem/MovieItem'
 import MovieItemBtn from '../Components/MovieItemBtn/MovieItemBtn'
-
+import { getHitFilms } from '../api/index'
 class Movie extends Component {
   constructor (props) {
     super(props)
@@ -15,6 +15,13 @@ class Movie extends Component {
       // 当前电影
       active: 'hotFilm'
     }
+  }
+  componentDidMount () {
+    getHitFilms({
+      name: 'yxp'
+    }).then(res => {
+      console.log(res)
+    })
   }
   render () {
     const { active, hotList, futureList } = this.state
