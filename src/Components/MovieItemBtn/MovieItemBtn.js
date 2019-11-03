@@ -3,9 +3,9 @@ import styles from './MovieItemBtn.module.scss'
 
 class MovieItemBtn extends Component {
   render () {
-    const {style, text} = this.props
+    const {className, text} = this.props
     return (
-      <div className={styles.btn} style={style}>
+      <div className={`${className} ${styles.btn}`}>
         {text}
       </div>
     )

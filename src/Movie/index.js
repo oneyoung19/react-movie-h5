@@ -9,18 +9,28 @@ class Movie extends Component {
     
     this.state = {
       // 热映电影列表数组
-      hotList: [0,1,2,3,4,5,6,7],
+      hotList: [],
       // 即将上映列表
-      futureList: [0],
+      futureList: [],
       // 当前电影
       active: 'hotFilm'
     }
   }
   componentDidMount () {
+    // FIXME:暂时写死 cinemaCode,按理说，是要在路由或者redux中获取的
     getHitFilms({
-      name: 'yxp'
+      cinemaCode: '11070811'
     }).then(res => {
       console.log(res)
+      if (res.status === 'success' && res.code === 200) {
+        const hotList = res.data
+        this.setState({
+          hotList
+        })
+        // this.setState((state, props) => ({
+        //   hotList
+        // }))
+      }
     })
   }
   render () {
@@ -50,10 +60,12 @@ class Movie extends Component {
             {
               hotList.map((item) => {
                 return (
-                  <MovieItem key={item} handleMovieItemClick={this.handleMovieItemClick}>
+                  item && (
+                  <MovieItem key={item.id} list={item} handleMovieItemClick={this.handleMovieItemClick}>
                     {/* style text */}
-                    <MovieItemBtn style={{backgroundColor: '#1AA5FF', color: '#fff'}} text={'预售'}></MovieItemBtn>
+                    <MovieItemBtn className={item.hitOrPresell === '1' ? `${style.buyBg}` : `${style.presellBg}`} text={item.hitOrPresell === '1' ? '购买' : '预售'}></MovieItemBtn>
                   </MovieItem>
+                  )
                 )
               })
             }
@@ -62,7 +74,7 @@ class Movie extends Component {
             {
               futureList.map((item) => {
                 return (
-                  <MovieItem key={item} handleMovieItemClick={this.handleMovieItemClick}>
+                  <MovieItem key={item} list={item} handleMovieItemClick={this.handleMovieItemClick}>
                     {/* style text */}
                     <MovieItemBtn style={{backgroundColor: '#1AA5FF', color: '#fff'}} text={'预售'}></MovieItemBtn>
                   </MovieItem>

@@ -1,10 +1,18 @@
 import axios from '../utils/http'
 
-export function getHitFilms (data) {
+export function getHitFilms (params) {
   return axios({
     method: 'get',
     url: '/getHitFilms',
-    data
+    params
+  })
+}
+
+export function getFutureFilms (params) {
+  return axios({
+    method: 'get',
+    url: '/getFutureFilms',
+    params
   })
 }
 

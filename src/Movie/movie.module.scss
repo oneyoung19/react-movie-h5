@@ -104,3 +104,15 @@
 .icondituweizhi {
   font-size: 30px;
 }
+
+// 购买背景色
+.buyBg {
+  background: linear-gradient(135deg, #ff4840 0%, #ff5eaa 100%);
+  // background: linear-gradient(#ff4840, #ff5eaa);
+  color: #fff;
+}
+// 预售背景色
+.presellBg {
+  background-color: #1AA5FF;
+  color: #fff;
+}
