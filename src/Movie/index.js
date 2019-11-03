@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import style from './movie.module.scss'
 import MovieItem from '../Components/MovieItem/MovieItem'
 import MovieItemBtn from '../Components/MovieItemBtn/MovieItemBtn'
-import { getHitFilms } from '../api/index'
+import { getHitFilms, getFutureFilms } from '../api/index'
 class Movie extends Component {
   constructor (props) {
     super(props)
@@ -18,8 +18,9 @@ class Movie extends Component {
   }
   componentDidMount () {
     // FIXME:暂时写死 cinemaCode,按理说，是要在路由或者redux中获取的
+    const cinemaCode = '11070811'
     getHitFilms({
-      cinemaCode: '11070811'
+      cinemaCode
     }).then(res => {
       console.log(res)
       if (res.status === 'success' && res.code === 200) {
@@ -30,6 +31,17 @@ class Movie extends Component {
         // this.setState((state, props) => ({
         //   hotList
         // }))
+      }
+    })
+
+    getFutureFilms({
+      cinemaCode
+    }).then(res => {
+      if (res.status === 'success' && res.code === 200) {
+        const futureList = res.data
+        this.setState({
+          futureList
+        })
       }
     })
   }
@@ -74,9 +86,9 @@ class Movie extends Component {
             {
               futureList.map((item) => {
                 return (
-                  <MovieItem key={item} list={item} handleMovieItemClick={this.handleMovieItemClick}>
+                  <MovieItem key={item.id} list={item} handleMovieItemClick={this.handleMovieItemClick}>
                     {/* style text */}
-                    <MovieItemBtn style={{backgroundColor: '#1AA5FF', color: '#fff'}} text={'预售'}></MovieItemBtn>
+                    <MovieItemBtn className={item.hitOrPresell === '1' ? `${style.buyBg}` : `${style.presellBg}`} text={item.hitOrPresell === '1' ? '购买' : '预售'}></MovieItemBtn>
                   </MovieItem>
                 )
               })
