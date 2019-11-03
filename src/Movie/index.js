@@ -2,12 +2,15 @@ import React, { Component } from 'react'
 import style from './movie.module.scss'
 import MovieItem from '../Components/MovieItem/MovieItem'
 import MovieItemBtn from '../Components/MovieItemBtn/MovieItemBtn'
-import { getHitFilms, getFutureFilms } from '../api/index'
+import { getHitFilms, getFutureFilms, getAds } from '../api/index'
+import { Carousel } from 'antd-mobile'
 class Movie extends Component {
   constructor (props) {
     super(props)
     
     this.state = {
+      // 轮播图
+      adList: [],
       // 热映电影列表数组
       hotList: [],
       // 即将上映列表
@@ -17,6 +20,20 @@ class Movie extends Component {
     }
   }
   componentDidMount () {
+    getAds({
+      code: '11111'
+    }).then(res => {
+      console.log({res})
+      if (res.status === 'success' && res.code === 200) {
+        const time = new Date().getTime()
+        const adList = res.data.filter((item) => {
+          return item.offlineTime > time
+        })
+        this.setState({
+          adList
+        })
+      }
+    })
     // FIXME:暂时写死 cinemaCode,按理说，是要在路由或者redux中获取的
     const cinemaCode = '11070811'
     getHitFilms({
@@ -46,7 +63,7 @@ class Movie extends Component {
     })
   }
   render () {
-    const { active, hotList, futureList } = this.state
+    const { active, hotList, futureList, adList } = this.state
     return (
       <div className={style.container}>
         {/* 影城信息 */}
@@ -61,6 +78,22 @@ class Movie extends Component {
         </div>
         {/* banner区域 */}
         <div className={style.banner}>
+          <Carousel
+            autoplay={true}
+            infinite
+          >
+            {adList.map(val => (
+              <a
+                key={val}
+                href="#"
+              >
+                <img
+                  src={val.fileUri}
+                  alt=""
+                />
+              </a>
+            ))}
+          </Carousel>
         </div>
         <div className={style.header}>
           <div className={ active === 'hotFilm' ? `${style.film} ${style.active}` : `${style.film}` } onClick={this.toggleToHotFilm}>正在热映</div>

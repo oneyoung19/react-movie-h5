@@ -1,5 +1,6 @@
 import axios from '../utils/http'
 
+// 热映电影
 export function getHitFilms (params) {
   return axios({
     method: 'get',
@@ -8,6 +9,7 @@ export function getHitFilms (params) {
   })
 }
 
+// 预售电影
 export function getFutureFilms (params) {
   return axios({
     method: 'get',
@@ -16,5 +18,12 @@ export function getFutureFilms (params) {
   })
 }
 
-
+// 广告位
+export function getAds (data) {
+  return axios({
+    method: 'post',
+    url: 'getAds',
+    data
+  })
+}
 
