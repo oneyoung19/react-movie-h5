@@ -1,7 +1,7 @@
 // 配置axios
 import axios from 'axios'
 
-const baseURL = 'http://127.0.0.1:3000'
+const baseURL = 'http://127.0.0.1:8080'
 // 新建一个axios实例
 const instance = axios.create({
   baseURL,
