@@ -85,7 +85,7 @@ class Movie extends Component {
             {adList.map(val => (
               <a
                 key={val}
-                href="#"
+                href="javascript;"
               >
                 <img
                   src={val.fileUri}
