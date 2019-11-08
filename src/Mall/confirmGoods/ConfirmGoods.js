@@ -3,6 +3,7 @@ import style from './confirmGoods.module.scss'
 import ConfirmGoodsItem from '../../Components/ConfirmGoodsItem/ConfirmGoodsItem'
 import phonePng from '../../assets/images/phone.png'
 import store from '../../store'
+import { setGoodsInfo } from '../store/actionCreators'
 // 这页使用了原生的redux，现在使用下react-redux
 import { connect } from 'react-redux'
 
@@ -16,8 +17,13 @@ class ConfirmGoods extends Component {
       totalMoney
     }
   }
+  componentDidMount () {
+    const { goodsInfo } = this.state
+    store.dispatch(setGoodsInfo(goodsInfo.price[0].price))
+  }
   render () {
-    const { goodsInfo, totalMoney } = this.state
+    const { goodsInfo } = this.state
+    const { totalMoney } = this.props
     return (
       <div className={style.wrapper}>
         {/* 地址 */}
@@ -81,8 +87,4 @@ const mapStateToProps = (state) => ({
   totalMoney: state.goodsReducer.totalMoney
 })
 
-const mapDispatchToProps = (dispatch) => ({
-
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(ConfirmGoods)
+export default connect(mapStateToProps, null)(ConfirmGoods)

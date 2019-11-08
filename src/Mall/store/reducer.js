@@ -1,4 +1,4 @@
-import { SETGOODSINFO, SETTOTALMONEY } from './actionTypes'
+import { SETGOODSINFO, SETTOTALMONEY, MINUSTOTALMONEY, PLUSTOTALMONEY } from './actionTypes'
 
 const defaultState = {
   // 当前选中卖品的信息
@@ -14,6 +14,14 @@ export default (state = defaultState, action) => {
     return newState
   }
   if (action.type === SETTOTALMONEY) {
+    newState.totalMoney = action.value
+    return newState
+  }
+  if (action.type === MINUSTOTALMONEY) {
+    newState.totalMoney -= action.value
+    return newState
+  }
+  if (action.type === PLUSTOTALMONEY) {
     newState.totalMoney += action.value
     return newState
   }

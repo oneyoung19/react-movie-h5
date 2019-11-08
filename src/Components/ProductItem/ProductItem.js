@@ -10,8 +10,8 @@ class ProductItem extends PureComponent {
   }
   render () {
     const { data } = this.props
-    const ordinaryPrice = data.price[0].price / 100
-    const memberPrice = data.price[1].price / 100
+    const ordinaryPrice = data.price[0].price
+    const memberPrice = data.price[1].price
     return (
       <div className={style.wrapper}>
         <div className={style.imgBox} style={{backgroundImage: `url(${kabaoPng})`}}></div>
@@ -31,7 +31,7 @@ class ProductItem extends PureComponent {
   handleBtnClicked (data) {
     console.log(this.props.history)
     store.dispatch(setGoodsInfo(data))
-    const ordinaryPrice = data.price[0].price / 100
+    const ordinaryPrice = data.price[0].price
     store.dispatch(setTotalMoney(ordinaryPrice))
     this.props.history.push({
       pathname: '/confirmGoods'

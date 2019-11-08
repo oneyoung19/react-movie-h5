@@ -1,14 +1,22 @@
 import React, { Component } from 'react'
 import style from './confirmGoodsItem.module.scss'
+import { connect } from 'react-redux'
+import { minusTotalMoney, plusTotalMoney } from '../../Mall/store/actionCreators'
 import { kabaoPng } from '../../assets/base64/kabao'
 import minusPng from '../../assets/images/minus.png'
 import plusPng from '../../assets/images/plus.png'
 
 class ConfirmGoodsItem extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      num: 1
+    }
+  }
   render () {
-    const { data } = this.props
-    const ordinaryPrice = data.price[0].price / 100
-    const memberPrice = data.price[1].price / 100
+    const { data, minusTotalMoney, plusTotalMoney } = this.props
+    const ordinaryPrice = data.price[0].price
+    const memberPrice = data.price[1].price
     return (
       <div className={style.wrapper}>
         {/* 卖品照片 */}
@@ -26,11 +34,11 @@ class ConfirmGoodsItem extends Component {
           </div>
           {/* 按钮 */}
           <div className={style.btn}>
-            <div className={style.minus}>
+            <div className={style.minus} onClick={minusTotalMoney.bind(this, ordinaryPrice)}>
               <img src={minusPng} alt=""/>
             </div>
-            <div className={style.text}>21</div>
-            <div className={style.plus}>
+            <div className={style.text}>{this.state.num}</div>
+            <div className={style.plus} onClick={plusTotalMoney.bind(this, ordinaryPrice)}>
               <img src={plusPng} alt=""/>
             </div>
           </div>
@@ -40,4 +48,25 @@ class ConfirmGoodsItem extends Component {
   }
 }
 
-export default ConfirmGoodsItem
+
+const mapDispatchToProps = (dispatch) => ({
+  minusTotalMoney (price) {
+    if (this.state.num <= 1) {
+      return
+    }
+    const newNum = this.state.num - 1
+    this.setState({
+      num: newNum
+    })
+    dispatch(minusTotalMoney(price))
+  },
+  plusTotalMoney (price) {
+    const newNum = this.state.num + 1
+    this.setState({
+      num: newNum
+    })
+    dispatch(plusTotalMoney(price))
+  }
+})
+
+export default connect(null, mapDispatchToProps)(ConfirmGoodsItem)
