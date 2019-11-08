@@ -1,8 +1,24 @@
 import React, { PureComponent } from 'react'
 import style from './mall.module.scss'
 import ProductItem from '../Components/ProductItem/ProductItem'
-
+import { getGoods } from '../api/index'
 class Mall extends PureComponent {
+  constructor (props) {
+    super(props)
+    this.state = {
+      goodsList: []
+    }
+  }
+  componentDidMount () {
+    getGoods().then(res => {
+      console.log(res)
+      if (res.status === 'success' && res.code === 200) {
+        this.setState({
+          goodsList: res.data
+        })
+      }
+    })
+  }
   render () {
     return (
       <div className={style.wrapper}>
@@ -31,12 +47,11 @@ class Mall extends PureComponent {
           </div>
           {/* 卖品区 */}
           <div className={style.productList}>
-            <ProductItem></ProductItem>
-            <ProductItem></ProductItem>
-            <ProductItem></ProductItem>
-            <ProductItem></ProductItem>
-            <ProductItem></ProductItem>
-            <ProductItem></ProductItem>
+            {
+              this.state.goodsList.map((item, index) => {
+                return <ProductItem key={index} data={item}></ProductItem>
+              })
+            }
           </div>
         </div>
       </div>

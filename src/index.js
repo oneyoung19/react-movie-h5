@@ -10,6 +10,8 @@ import App from './App'
 // import Mine from './Mine'
 import MovieDetail from './Movie/MovieDetail/MovieDetail'
 import CityList from './Login/CityList'
+import ConfirmGoods from './Mall/confirmGoods/ConfirmGoods'
+
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
@@ -18,6 +20,7 @@ ReactDOM.render(
   // 3.虽然router4做了改变，但是依然需要初始化的路由表。页面载入或者刷新都要依赖这个表。
   <Router>
     <Switch>
+      <Route path='/confirmGoods' component={ConfirmGoods}></Route>
       <Route path='/cityList' component={CityList}></Route>
       <Route path='/movie/detail' component={MovieDetail}></Route>
       <Redirect from='/' to='/movie' exact></Redirect>

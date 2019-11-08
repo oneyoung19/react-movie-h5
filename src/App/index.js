@@ -23,6 +23,7 @@ class App extends Component {
   componentDidMount() {
     const { tabList } = this.state
     const selectedTab = window.localStorage.getItem('selectedTab')
+    console.warn({selectedTab})
     const pathname = this.props.history.location.pathname
     if (selectedTab && tabList[pathname] === selectedTab) {
       this.setState({
@@ -36,8 +37,9 @@ class App extends Component {
     this.props.history.listen(() => {
       const pathname = this.props.history.location.pathname
       console.warn(pathname)
-      
-      window.localStorage.setItem('selectedTab', tabList[pathname])
+      if (tabList[pathname]) {
+        window.localStorage.setItem('selectedTab', tabList[pathname])
+      }
     })
   }
   render () {

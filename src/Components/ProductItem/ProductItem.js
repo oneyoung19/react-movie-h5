@@ -1,24 +1,38 @@
 import React, { PureComponent } from 'react'
 import style from './ProductItem.module.scss'
+import { withRouter } from 'react-router-dom'
 import { kabaoPng } from '../../assets/base64/kabao'
 class ProductItem extends PureComponent {
+  constructor (props) {
+    super(props)
+    this.handleBtnClicked = this.handleBtnClicked.bind(this)
+  }
   render () {
+    const { data } = this.props
+    const ordinaryPrice = data.price[0].price / 100
+    const memberPrice = data.price[1].price / 100
     return (
       <div className={style.wrapper}>
         <div className={style.imgBox} style={{backgroundImage: `url(${kabaoPng})`}}></div>
         <div className={style.leftBox}>
-          <div className={`${style.title} ${style.ellipsis}`}>双人金猪贺岁套餐</div>
-          <div className={`${style.introduce} ${style.ellipsis}`}>1公仔(4款任选)+1中爆+2任意饮料</div>
+          <div className={`${style.title} ${style.ellipsis}`}>{data.name}</div>
+          <div className={`${style.introduce} ${style.ellipsis}`}>{data.desc}</div>
           <div className={`${style.validate} ${style.ellipsis}`}>截止兑回时间：2019年2月28日</div>
           <div className={`${style.money} ${style.ellipsis}`}>
-            <div className={style.ordinary}>62元</div>
-            <div className={style.member}>会员价55元</div>
+            <div className={style.ordinary}>{ordinaryPrice}元</div>
+            { memberPrice && <div className={style.member}>会员价{memberPrice}元</div>}
           </div>
         </div>
-        <div className={style.btn}>购买</div>
+        <div className={style.btn} onClick={this.handleBtnClicked}>购买</div>
       </div>
     )
   }
+  handleBtnClicked () {
+    console.log(this.props.history)
+    this.props.history.push({
+      pathname: '/confirmGoods'
+    })
+  }
 }
 
-export default ProductItem
+export default withRouter(ProductItem)

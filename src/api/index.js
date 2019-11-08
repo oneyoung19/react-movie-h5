@@ -35,3 +35,12 @@ export function getActivities (data) {
     data
   })
 }
+
+// 卖品列表
+export function getGoods (data) {
+  return axios({
+    method: 'post',
+    url: '/getGoods',
+    data
+  })
+}
