@@ -3,7 +3,7 @@ import style from './ProductItem.module.scss'
 import { withRouter } from 'react-router-dom'
 import { kabaoPng } from '../../assets/base64/kabao'
 import store from '../../store'
-import { setGoodsInfo } from '../../Mall/store/actionCreators'
+import { setGoodsInfo, setTotalMoney } from '../../Mall/store/actionCreators'
 class ProductItem extends PureComponent {
   constructor (props) {
     super(props)
@@ -31,6 +31,8 @@ class ProductItem extends PureComponent {
   handleBtnClicked (data) {
     console.log(this.props.history)
     store.dispatch(setGoodsInfo(data))
+    const ordinaryPrice = data.price[0].price / 100
+    store.dispatch(setTotalMoney(ordinaryPrice))
     this.props.history.push({
       pathname: '/confirmGoods'
     })

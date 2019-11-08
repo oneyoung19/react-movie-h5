@@ -3,17 +3,21 @@ import style from './confirmGoods.module.scss'
 import ConfirmGoodsItem from '../../Components/ConfirmGoodsItem/ConfirmGoodsItem'
 import phonePng from '../../assets/images/phone.png'
 import store from '../../store'
+// 这页使用了原生的redux，现在使用下react-redux
+import { connect } from 'react-redux'
 
 class ConfirmGoods extends Component {
   constructor (props) {
     super(props)
     const goodsInfo = store.getState().goodsReducer.goodsInfo
+    const totalMoney = store.getState().goodsReducer.totalMoney
     this.state = {
-      goodsInfo
+      goodsInfo,
+      totalMoney
     }
   }
   render () {
-    const { goodsInfo } = this.state
+    const { goodsInfo, totalMoney } = this.state
     return (
       <div className={style.wrapper}>
         {/* 地址 */}
@@ -64,7 +68,7 @@ class ConfirmGoods extends Component {
         <div className={style.footer}>
           <div className={style.totalMoney}>
             <div className={style.text}>合计：</div>
-            <div className={style.money}>￥45.9</div>
+            <div className={style.money}>￥{totalMoney}</div>
           </div>
           <div className={style.confirmBtn}>确认订单</div>
         </div>
@@ -73,4 +77,12 @@ class ConfirmGoods extends Component {
   }
 }
 
-export default ConfirmGoods
+const mapStateToProps = (state) => ({
+  totalMoney: state.goodsReducer.totalMoney
+})
+
+const mapDispatchToProps = (dispatch) => ({
+
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ConfirmGoods)

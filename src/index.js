@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import store from './store'
 import './index.css'
 import 'lib-flexible'
 import App from './App'
@@ -18,19 +20,21 @@ ReactDOM.render(
   // 1.其实，Redirect是会渲染一个对应的to的组件
   // 2.在Switch组件中，匹配多个,但是只会生成一个大组件。如果没有Switch，凡是Route匹配到的组件都会渲染。
   // 3.虽然router4做了改变，但是依然需要初始化的路由表。页面载入或者刷新都要依赖这个表。
-  <Router>
-    <Switch>
-      <Route path='/confirmGoods' component={ConfirmGoods}></Route>
-      <Route path='/cityList' component={CityList}></Route>
-      <Route path='/movie/detail' component={MovieDetail}></Route>
-      <Redirect from='/' to='/movie' exact></Redirect>
-      <Route path='/' component={App}></Route>
-      {/* <Route path='/movie' component={Movie}></Route>
-      <Route path='/mall'  component={Mall}></Route>
-      <Route path='/activity' component={Activity}></Route>
-      <Route path='/mine' component={Mine}></Route> */}
-    </Switch>
-  </Router>,
+  <Provider store={store}>
+    <Router>
+      <Switch>
+        <Route path='/confirmGoods' component={ConfirmGoods}></Route>
+        <Route path='/cityList' component={CityList}></Route>
+        <Route path='/movie/detail' component={MovieDetail}></Route>
+        <Redirect from='/' to='/movie' exact></Redirect>
+        <Route path='/' component={App}></Route>
+        {/* <Route path='/movie' component={Movie}></Route>
+        <Route path='/mall'  component={Mall}></Route>
+        <Route path='/activity' component={Activity}></Route>
+        <Route path='/mine' component={Mine}></Route> */}
+      </Switch>
+    </Router>
+  </Provider>,
  document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
