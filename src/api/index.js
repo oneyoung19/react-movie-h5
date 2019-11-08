@@ -22,8 +22,16 @@ export function getFutureFilms (params) {
 export function getAds (data) {
   return axios({
     method: 'post',
-    url: 'getAds',
+    url: '/getAds',
     data
   })
 }
 
+// 活动页列表
+export function getActivities (data) {
+  return axios({
+    method: 'post',
+    url: '/getActivities',
+    data
+  })
+}

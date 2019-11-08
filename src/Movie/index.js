@@ -29,6 +29,7 @@ class Movie extends Component {
         const adList = res.data.filter((item) => {
           return item.offlineTime > time
         })
+        console.warn({time, adList})
         this.setState({
           adList
         })

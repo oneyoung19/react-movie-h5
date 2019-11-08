@@ -2,13 +2,25 @@ import React, { PureComponent } from 'react'
 import { Wrapper } from './style'
 import { PullToRefresh } from 'antd-mobile'
 import ActivityItem from '../Components/ActivityItem/ActivityItem'
+import { getActivities } from '../api/index'
 
 class Activity extends PureComponent {
   constructor (props) {
     super(props)
     this.state = {
-      list: [0,1,2,3,4,5],
+      list: [],
     }
+  }
+  componentDidMount () {
+    // 获取活动列表
+    getActivities().then(res => {
+      console.warn({res})
+      if (res.status === 'success' && res.code === 200) {
+        this.setState({
+          list: res.data
+        })
+      }
+    })
   }
   render () {
     const { list } = this.state
@@ -21,7 +33,7 @@ class Activity extends PureComponent {
         >
           {
             list.map(item => (
-              <ActivityItem key={item}></ActivityItem>
+              <ActivityItem key={item.id} data={item}></ActivityItem>
             ))
           }
         </PullToRefresh>
