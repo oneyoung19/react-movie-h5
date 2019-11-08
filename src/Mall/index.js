@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import style from './mall.module.scss'
 import ProductItem from '../Components/ProductItem/ProductItem'
 import { getGoods } from '../api/index'
+
 class Mall extends PureComponent {
   constructor (props) {
     super(props)

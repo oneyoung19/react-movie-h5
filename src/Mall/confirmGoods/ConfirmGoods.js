@@ -2,9 +2,18 @@ import React, { Component } from 'react'
 import style from './confirmGoods.module.scss'
 import ConfirmGoodsItem from '../../Components/ConfirmGoodsItem/ConfirmGoodsItem'
 import phonePng from '../../assets/images/phone.png'
+import store from '../../store'
 
 class ConfirmGoods extends Component {
+  constructor (props) {
+    super(props)
+    const goodsInfo = store.getState().goodsReducer.goodsInfo
+    this.state = {
+      goodsInfo
+    }
+  }
   render () {
+    const { goodsInfo } = this.state
     return (
       <div className={style.wrapper}>
         {/* 地址 */}
@@ -13,7 +22,7 @@ class ConfirmGoods extends Component {
           <div className={style.name}>北京市海淀区越秀路99号二层</div>
         </div>
         {/* 卖品 */}
-        <ConfirmGoodsItem></ConfirmGoodsItem>
+        <ConfirmGoodsItem data={goodsInfo}></ConfirmGoodsItem>
         {/* 手机号 */}
         <div className={style.phone}>
           <div className={style.img}>

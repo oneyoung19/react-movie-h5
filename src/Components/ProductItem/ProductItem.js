@@ -2,10 +2,11 @@ import React, { PureComponent } from 'react'
 import style from './ProductItem.module.scss'
 import { withRouter } from 'react-router-dom'
 import { kabaoPng } from '../../assets/base64/kabao'
+import store from '../../store'
+import { setGoodsInfo } from '../../Mall/store/actionCreators'
 class ProductItem extends PureComponent {
   constructor (props) {
     super(props)
-    this.handleBtnClicked = this.handleBtnClicked.bind(this)
   }
   render () {
     const { data } = this.props
@@ -23,12 +24,13 @@ class ProductItem extends PureComponent {
             { memberPrice && <div className={style.member}>会员价{memberPrice}元</div>}
           </div>
         </div>
-        <div className={style.btn} onClick={this.handleBtnClicked}>购买</div>
+        <div className={style.btn} onClick={this.handleBtnClicked.bind(this, data)}>购买</div>
       </div>
     )
   }
-  handleBtnClicked () {
+  handleBtnClicked (data) {
     console.log(this.props.history)
+    store.dispatch(setGoodsInfo(data))
     this.props.history.push({
       pathname: '/confirmGoods'
     })
