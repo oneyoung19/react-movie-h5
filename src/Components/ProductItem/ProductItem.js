@@ -5,9 +5,6 @@ import { kabaoPng } from '../../assets/base64/kabao'
 import store from '../../store'
 import { setGoodsInfo, setTotalMoney } from '../../Mall/store/actionCreators'
 class ProductItem extends PureComponent {
-  constructor (props) {
-    super(props)
-  }
   render () {
     const { data } = this.props
     const ordinaryPrice = data.price[0].price
