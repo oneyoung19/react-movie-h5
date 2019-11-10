@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import style from './MovieItem.module.scss'
+
 class MovieItem extends Component {
   render () {
     const { list, handleMovieItemClick } = this.props
@@ -11,7 +12,8 @@ class MovieItem extends Component {
     if (wantToSee) {
       Dom_wantToSee = <span className={style.wantToSee}>{Number(wantToSee) / 10}w人想看</span>
     }
-    if (dimensionalList) {
+    console.log({dimensionalList})
+    if (dimensionalList && dimensionalList.length) {
       Dom_dimensionalList = <span className={style.dimensionalList}>{dimensionalList.join(' ')}</span>
     }
     return (
