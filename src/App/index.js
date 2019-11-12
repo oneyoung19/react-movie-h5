@@ -39,6 +39,9 @@ class App extends Component {
       console.warn(pathname)
       if (tabList[pathname]) {
         window.localStorage.setItem('selectedTab', tabList[pathname])
+        this.setState({
+          selectedTab: tabList[pathname]
+        })
       }
     })
   }

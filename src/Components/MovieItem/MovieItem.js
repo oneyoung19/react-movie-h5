@@ -12,7 +12,6 @@ class MovieItem extends Component {
     if (wantToSee) {
       Dom_wantToSee = <span className={style.wantToSee}>{Number(wantToSee) / 10}w人想看</span>
     }
-    console.log({dimensionalList})
     if (dimensionalList && dimensionalList.length) {
       Dom_dimensionalList = <span className={style.dimensionalList}>{dimensionalList.join(' ')}</span>
     }
